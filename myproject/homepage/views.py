@@ -9,4 +9,5 @@ def index_page(request):
     return response
 
 def articles(request):
-    return HttpResponse('Articles')
+    response = render(request, 'homepage/articles.html')
+    return response
