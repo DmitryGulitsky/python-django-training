@@ -5,5 +5,15 @@ Articles
 {% endblock %}
 
 {% block body %}
-<h1>Welcome to articles page!</h1>
+<h1>Choose an article!</h1>
+<ul class="list-group">
+	{% for num in articles %}
+	<li class="list-group-item {% cycle 'list-group-item-primary' 'list-group-item-secondary' 'list-group-item-warning' %}"
+	>Article N{{ num }}</li>
+	{% endfor %}
+	{% comment %}
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+	{% endcomment %}
+</ul>
 {% endblock %}

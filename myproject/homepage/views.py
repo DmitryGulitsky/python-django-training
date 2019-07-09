@@ -9,5 +9,8 @@ def index_page(request):
     return response
 
 def articles(request):
-    response = render(request, 'homepage/articles.html')
+    args = {
+        'articles': list(range(1, 8))
+    }
+    response = render(request, 'homepage/articles.html', args)
     return response
