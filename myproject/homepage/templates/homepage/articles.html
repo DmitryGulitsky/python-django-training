@@ -7,13 +7,24 @@ Articles
 {% block body %}
 <h1>Choose an article!</h1>
 <ul class="list-group">
+  {{ val1|safe }} {{ val2|safe }}
 	{% for num in articles %}
+		{% cycle val1 val2 as val silent %}
 	<li class="list-group-item {% cycle 'list-group-item-primary' 'list-group-item-secondary' 'list-group-item-warning' %}"
-	>Article N{{ num }}</li>
+	>Article N{{ num }} {{ val|safe }}</li>
 	{% endfor %}
 	{% comment %}
   <li class="list-group-item">Dapibus ac facilisis in</li>
   <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
 	{% endcomment %}
+
+	{% cycle 'dark' 'danger' as theme silent %}
+	<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
+	<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
+
+	{% cycle theme %}
+	<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
+	<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
+
 </ul>
 {% endblock %}
