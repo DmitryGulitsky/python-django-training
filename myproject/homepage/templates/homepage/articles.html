@@ -10,14 +10,22 @@ Articles
 	<div>
 
 	{% for num in articles %}
-		Article {{ num }}
-		{{ empty }}
+		{% if num == 1 %}
+			<h1>Article {{ num }}</h1>
+		{% elif num == 2 %}
+			<h2>Article {{ num }}</h2>
+		{% elif num == 3 %}
+		<h3>Article {{ num }}</h3>
+		{% else %}
+			<h4>Article {{ num }}</h4>
+		{% endif %}
+		{% empty %}
 		<div>Sorry, no articles</div>
 	{% endfor %}
 
 
 	</div>
-
+	<hr>
 <ul class="list-group">
   {{ val1|safe }} {{ val2|safe }}
 	{% for num in articles %}
