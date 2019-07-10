@@ -15,6 +15,7 @@ def articles(request):
     my_obj = MyClass()
     my_obj.data = {'spam': 'eggs'}
     my_obj.list = list(range(10, 20))
+    my_obj.baz = list(range(7))
     args = {
         'articles': list(range(1, 8)),
         # 'articles': [],
