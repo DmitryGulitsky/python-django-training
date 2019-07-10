@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.views.decorators.http import require_http_methods, require_GET
-from django.http import HttpResponse
 from datetime import datetime, timedelta
 from random import randint
 
@@ -52,6 +51,8 @@ def articles(request):
     response = render(request, 'homepage/articles.html', args)
     return response
 
+def article_year(request, year):
+    return HttpResponse(f'<h1>Year is {year}</h1>')
 
 class MyClass:
     foo = 42
