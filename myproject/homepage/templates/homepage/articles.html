@@ -6,6 +6,18 @@ Articles
 
 {% block body %}
 <h1>Choose an article!</h1>
+
+	<div>
+
+	{% for num in articles %}
+		Article {{ num }}
+		{{ empty }}
+		<div>Sorry, no articles</div>
+	{% endfor %}
+
+
+	</div>
+
 <ul class="list-group">
   {{ val1|safe }} {{ val2|safe }}
 	{% for num in articles %}
