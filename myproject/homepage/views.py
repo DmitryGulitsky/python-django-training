@@ -20,9 +20,10 @@ def articles(request):
         'articles': list(range(1, 8)),
         # 'articles': [],
         'val0': '',
-        'val1': 'OPUS',
+        'val1': 'OTUS',
         'val2': '<h3>Value 2</h3>',
-        'obj': my_obj
+        'obj': my_obj,
+        'a_title': 'django and sublime text 3'
     }
     response = render(request, 'homepage/articles.html', args)
     return response

@@ -83,8 +83,14 @@ Articles
 		<h5>{{ val0|add:"5" }}</h5>
 		<h5>{{ obj.list|add:obj.baz }}</h5>
 
-		<pre>{{ val1|center:10 }}</pre>
+		# center - add 16 spaces before and after val1
+		<pre>{{ val1|center:16 }}</pre>
+
+		# capfirst - first letter to uppercase
 		<pre>{{ val1|capfirst }}</pre>
+
+		# title - first letters to uppercase, other lowercase
+		<h4>{{ a_title|title }}</h4>
 	</div>
 
 {% endblock %}
