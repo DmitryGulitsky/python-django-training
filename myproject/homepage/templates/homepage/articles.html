@@ -106,9 +106,13 @@ Articles
 		<div>
 			<ul class="list-group">
 				{% for a_date in dates %}
-					<li class="list-group-item">
-						{{ a_date|date:"SHORT_DATETIME_FORMAT" }}
-					</li>
+					{% ifchanged a_date%}
+						<li class="list-group-item">
+							{{ a_date|date:"SHORT_DATE_FORMAT" }}
+						</li>
+						<hr>
+					{% endifchanged %}
+					<small>{{ a_date|date:"TIME_FORMAT" }}</small>
 				{% endfor %}
 			</ul>
 		</div>
