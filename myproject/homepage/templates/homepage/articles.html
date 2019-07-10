@@ -139,4 +139,39 @@
 			{% endfor %}
 		</ul>
 	</div>
+
+	# templatetag
+	<pre>
+		{% templatetag openblock %} <br>
+		{% templatetag closeblock %} <br>
+		{% templatetag closevariable %} <br>
+		{% templatetag openbrace %} <br>
+		{% templatetag opencomment %} <br>
+	</pre>
+
+	<hr>
+	<pre>
+		# verbatim
+		{% verbatim %}
+			{% for a_date in dates %}
+					{% ifchanged a_date %}
+						<li class="list-group-item">
+							{{ a_date|date:"SHORT_DATE_FORMAT" }}
+						</li>
+						<hr>
+					{% endifchanged %}
+					<small>{{ a_date|date:"TIME_FORMAT" }}</small>
+			{{ endfor }}
+
+			{%
+
+			%}
+
+			}}
+
+			{
+
+		{% endverbatim %}
+	</pre>
+
 {% endblock %}
