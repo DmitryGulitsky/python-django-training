@@ -20,7 +20,7 @@ def articles(request):
         'articles': list(range(1, 8)),
         # 'articles': [],
         'val0': '',
-        'val1': '<h3>Value 1</h3>',
+        'val1': 'OPUS',
         'val2': '<h3>Value 2</h3>',
         'obj': my_obj
     }
