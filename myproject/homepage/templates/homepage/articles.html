@@ -57,15 +57,25 @@ Articles
 	</div>
 
 	<div>
-	{{ obj }}
+		{{ obj }}
 		<br>
-	{{ obj.foo }}
+		{{ obj.foo }}
 		<br>
-	{% if obj.foo > 40 %}
-		<div>Foo from obj greater than 40</div>
-	{% endif %}
+		{% if obj.foo > 40 %}
+			<div>Foo from obj greater than 40</div>
+		{% endif %}
 		{% if obj.foo < obj.bar %}
-		<div>obj.foo ({{ obj.foo }}) < obj.bar ({{ obj.bar }})</div>
-	{% endif %}
+			<div>obj.foo ({{ obj.foo }}) < obj.bar ({{ obj.bar }})</div>
+		{% endif %}
+			<br>
+		{{ obj.data.spam  }}
+		{{ obj.list.2  }}
+
+		{% if obj.list|length > 5 %}
+			<h3>Length of list is greater than 5</h3>
+		{% else %}
+			<h3>Length of list is lower or equal 5</h3>
+		{% endif %}
 	</div>
+
 {% endblock %}
