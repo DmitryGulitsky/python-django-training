@@ -14,9 +14,10 @@ def index_page(request):
 def articles(request):
     args = {
         'articles': list(range(1, 8)),
+        # 'articles': [],
+        'val0': '',
         'val1': '<h3>Value 1</h3>',
         'val2': '<h3>Value 2</h3>',
-
     }
     response = render(request, 'homepage/articles.html', args)
     return response

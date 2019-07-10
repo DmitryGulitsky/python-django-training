@@ -47,4 +47,12 @@ Articles
 	<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
 
 </ul>
+
+	<div>
+		<h4>
+			{% autoescape off %}
+				{% firstof val0 val1 val2 %}
+			{% endautoescape %}
+		</h4>
+	</div>
 {% endblock %}
