@@ -23,7 +23,11 @@ def articles(request):
         'val1': 'OTUS',
         'val2': '<h3>Value 2</h3>',
         'obj': my_obj,
-        'a_title': 'django and sublime text 3'
+        'a_title': 'django and sublime text 3',
+        'string': ('First line\n'
+                   'Second line\n'
+                   'Third line\n'
+                  )
     }
     response = render(request, 'homepage/articles.html', args)
     return response
