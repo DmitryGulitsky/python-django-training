@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods, require_GET
 from django.http import HttpResponse
+from datetime import datetime, timedelta
+from random import randint
+
 
 @require_http_methods(["GET", "POST"])
 def index_page(request):
@@ -9,6 +12,19 @@ def index_page(request):
     response = render(request, 'homepage/index.html')
     response['MyCustomHeader'] = 'spam-and-eggs'
     return response
+
+
+def get_date_list(count=10):
+    result = []
+    today = datetime.today()
+    for i in range(count):
+        date = today - timedelta(days=i)
+        for j in range(randint(1, 4)):
+            result.append(
+                date.replace(hour=randint(0,23))
+            )
+    return result
+
 
 @require_GET
 def articles(request):
@@ -27,10 +43,15 @@ def articles(request):
         'string': ('First line\n'
                    'Second line\n'
                    'Third line\n'
-                  )
+                  ),
+        'current': datetime.today(),
+        'dates': get_date_list(),
+
     }
+    print(get_date_list())
     response = render(request, 'homepage/articles.html', args)
     return response
+
 
 class MyClass:
     foo = 42

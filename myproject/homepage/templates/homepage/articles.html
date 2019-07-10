@@ -100,6 +100,19 @@ Articles
 
 		# 'now' add current date
 		<h4>{% now "j F Y G:i" %}</h4>
+
+		<h5>{{ current|date:"SHORT_DATETIME_FORMAT" }}</h5>
+
+		<div>
+			<ul class="list-group">
+				{% for a_date in dates %}
+					<li class="list-group-item">
+						{{ a_date|date:"SHORT_DATETIME_FORMAT" }}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+
 	</div>
 
 {% endblock %}
