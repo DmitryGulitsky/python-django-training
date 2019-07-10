@@ -51,8 +51,21 @@ Articles
 	<div>
 		<h4>
 			{% autoescape off %}
-				{% firstof val0 val1 val2 %}
+				{% firstof val0 val1 val2 'Nothing' %}
 			{% endautoescape %}
 		</h4>
+	</div>
+
+	<div>
+	{{ obj }}
+		<br>
+	{{ obj.foo }}
+		<br>
+	{% if obj.foo > 40 %}
+		<div>Foo from obj greater than 40</div>
+	{% endif %}
+		{% if obj.foo < obj.bar %}
+		<div>obj.foo ({{ obj.foo }}) < obj.bar ({{ obj.bar }})</div>
+	{% endif %}
 	</div>
 {% endblock %}

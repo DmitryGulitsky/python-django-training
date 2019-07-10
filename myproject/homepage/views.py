@@ -12,12 +12,21 @@ def index_page(request):
 
 @require_GET
 def articles(request):
+    my_obj = MyClass()
     args = {
         'articles': list(range(1, 8)),
         # 'articles': [],
         'val0': '',
         'val1': '<h3>Value 1</h3>',
         'val2': '<h3>Value 2</h3>',
+        'obj': my_obj
     }
     response = render(request, 'homepage/articles.html', args)
     return response
+
+class MyClass:
+    foo = 42
+    bar = 60
+
+    def __repr__(self):
+        return f'<MyClass {self.foo} {self.bar}>'
