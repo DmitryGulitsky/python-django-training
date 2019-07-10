@@ -21,7 +21,7 @@ def get_date_list(count=10):
         date = today - timedelta(days=i)
         for j in range(randint(1, 4)):
             result.append(
-                date.replace(hour=randint(0,23))
+                date.replace(hour=randint(0, 23))
             )
     return result
 
@@ -43,10 +43,10 @@ def articles(request):
         'string': ('First line\n'
                    'Second line\n'
                    'Third line\n'
-                  ),
+                   ),
         'current': datetime.today(),
         'dates': get_date_list(),
-
+        'items': list(range(4,))
     }
     print(get_date_list())
     response = render(request, 'homepage/articles.html', args)

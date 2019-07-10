@@ -1,52 +1,52 @@
 {% extends 'homepage/base.html' %}
 
 {% block title %}
-Articles
+	Articles
 {% endblock %}
 
 {% block body %}
-<h1>Choose an article!</h1>
+	<h1>Choose an article!</h1>
 
 	<div>
 
-	{% for num in articles %}
-		{% if num == 1 %}
-			<h1>Article {{ num }}</h1>
-		{% elif num == 2 %}
-			<h2>Article {{ num }}</h2>
-		{% elif num == 3 %}
-		<h3>Article {{ num }}</h3>
-		{% else %}
-			<h4>Article {{ num }}</h4>
-		{% endif %}
+		{% for num in articles %}
+			{% if num == 1 %}
+				<h1>Article {{ num }}</h1>
+			{% elif num == 2 %}
+				<h2>Article {{ num }}</h2>
+			{% elif num == 3 %}
+				<h3>Article {{ num }}</h3>
+			{% else %}
+				<h4>Article {{ num }}</h4>
+			{% endif %}
 		{% empty %}
-		<div>Sorry, no articles</div>
-	{% endfor %}
+			<div>Sorry, no articles</div>
+		{% endfor %}
 
 
 	</div>
 	<hr>
-<ul class="list-group">
-  {{ val1|safe }} {{ val2|safe }}
-	{% for num in articles %}
-		{% cycle val1 val2 as val silent %}
-	<li class="list-group-item {% cycle 'list-group-item-primary' 'list-group-item-secondary' 'list-group-item-warning' %}"
-	>Article N{{ num }} {{ val|safe }}</li>
-	{% endfor %}
-	{% comment %}
+	<ul class="list-group">
+		{{ val1|safe }} {{ val2|safe }}
+		{% for num in articles %}
+			{% cycle val1 val2 as val silent %}
+			<li class="list-group-item {% cycle 'list-group-item-primary' 'list-group-item-secondary' 'list-group-item-warning' %}"
+			>Article N{{ num }} {{ val|safe }}</li>
+		{% endfor %}
+		{% comment %}
   <li class="list-group-item">Dapibus ac facilisis in</li>
   <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
 	{% endcomment %}
 
-	{% cycle 'dark' 'danger' as theme silent %}
-	<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
-	<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
+		{% cycle 'dark' 'danger' as theme silent %}
+		<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
+		<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
 
-	{% cycle theme %}
-	<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
-	<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
+		{% cycle theme %}
+		<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
+		<li class="list-group-item list-group-item-{{ theme }}">A simple secondary list group item</li>
 
-</ul>
+	</ul>
 
 	<div>
 		<h4>
@@ -67,9 +67,9 @@ Articles
 		{% if obj.foo < obj.bar %}
 			<div>obj.foo ({{ obj.foo }}) < obj.bar ({{ obj.bar }})</div>
 		{% endif %}
-			<br>
-		{{ obj.data.spam  }}
-		{{ obj.list.2  }}
+		<br>
+		{{ obj.data.spam }}
+		{{ obj.list.2 }}
 
 		{% if obj.list|length > 5 %}
 			<h3>Length of list is greater than 5</h3>
@@ -106,7 +106,7 @@ Articles
 		<div>
 			<ul class="list-group">
 				{% for a_date in dates %}
-					{% ifchanged a_date%}
+					{% ifchanged a_date %}
 						<li class="list-group-item">
 							{{ a_date|date:"SHORT_DATE_FORMAT" }}
 						</li>
@@ -116,7 +116,24 @@ Articles
 				{% endfor %}
 			</ul>
 		</div>
-
 	</div>
 
+	<div>
+		Look:
+		{% spaceless %}
+			<p>
+				<span>SPAN VALUE</span>
+				<p>PARA</p>
+				<a href="#">Google</a>
+			</p>
+		{% endspaceless %}
+	</div>
+
+	<div>
+		<ul class="list-group">
+			{% for item in a_title %}
+				<li class="list-group-item">{{ item }} car{{ item|pluralise }}</li>
+			{% endfor %}
+		</ul>
+	</div>
 {% endblock %}
