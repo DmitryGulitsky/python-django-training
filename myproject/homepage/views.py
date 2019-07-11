@@ -1,16 +1,15 @@
 from django.shortcuts import render, HttpResponse
 from django.views.decorators.http import require_http_methods, require_GET
+from django.views.generic import TemplateView
 from datetime import datetime, timedelta
 from random import randint
 
 
-@require_http_methods(["GET", "POST"])
-def index_page(request):
-    if request.method == "GET":
-        print("Method is GET")
-    response = render(request, 'homepage/index.html')
-    response['MyCustomHeader'] = 'spam-and-eggs'
-    return response
+class IndexPageView(TemplateView):
+    template_name = 'homepage/index.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
 
 
 def get_date_list(count=10):
@@ -45,14 +44,16 @@ def articles(request):
                    ),
         'current': datetime.today(),
         'dates': get_date_list(),
-        'items': list(range(4,))
+        'items': list(range(4, ))
     }
     print(get_date_list())
     response = render(request, 'homepage/articles.html', args)
     return response
 
+
 def article_year(request, year):
     return HttpResponse(f'<h1>Year is {year}</h1>')
+
 
 class MyClass:
     foo = 42
