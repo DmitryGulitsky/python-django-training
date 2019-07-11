@@ -5,6 +5,7 @@ from . import views
 
 app_name = 'homepage'
 
+
 class YearConverter:
     regex = r'[0-9]{4}'
 
@@ -24,8 +25,8 @@ urlpatterns = [
     path('', views.TemplateView.as_view(
         template_name='homepage/index.html'),
          name='index'),
-    path('articles/', views.articles, name='articles'),
+    path('articles/', views.ArticleView.as_view(), name='articles'),
     path('articles/<year:year>', views.article_year, name='articles_year'),
-    #re_path(r'articles/(?P<year>[0-9]{4})/$',
+    # re_path(r'articles/(?P<year>[0-9]{4})/$',
     #        views.article_year, name='articles'),
 ]
