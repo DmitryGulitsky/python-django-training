@@ -5,7 +5,7 @@ from .models import AuthorsModel
 
 @admin.register(AuthorsModel)
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('id', '__str__', 'email_domain', 'abc')
+    list_display = ('id', '__str__', 'email_domain', 'level', )
 
     empty_value_display = '(email not stated)'
 
