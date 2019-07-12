@@ -1,1 +1,5 @@
 .idea/
+myproject/__pycache__/
+myproject/authors/__pycache__/
+myproject/homepage/__pycache__/
+myproject/myproject/__pycache__/
