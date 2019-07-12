@@ -19,5 +19,6 @@ class IndexView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.filter(level='M')
+        # gt means greater than
+        queryset = queryset.filter(id__gt=1)
         return queryset
