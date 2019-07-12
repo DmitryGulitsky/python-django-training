@@ -16,3 +16,8 @@ class IndexView(ListView):
     #    context = super().get_context_data(**kwargs)
     #    context['authors'] = AuthorsModel.objects.all()
     #    return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(level='M')
+        return queryset
