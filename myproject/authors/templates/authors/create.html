@@ -1,0 +1,12 @@
+{% extends "authors/base.html" %}
+
+{% block body %}
+	<h1>Create author</h1>
+	<form method="post">
+		{#	csrf_token sets token as name attribute to input	#}
+		{% csrf_token %}
+		{# as_p means as paragraph	#}
+		{{ form.as_p }}
+	<input type="submit" value="Create"></input>
+	</form>
+{% endblock %}
