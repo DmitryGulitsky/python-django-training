@@ -4,12 +4,14 @@
 	Index of authors
 {% endblock %}
 
+{% load email_domain %}
 {% block body %}
 	<h1>Authors:</h1>
 	<div>
 		<ul class="list-group">
 			{% for author in authors %}
-				<li class="list-group-item">{{ author.id }}. {{ author }}. </li>
+				<li class="list-group-item">{{ author.id }}. {{ author }} |
+					{{ author.email|domain }}. </li>
 			{% endfor %}
 		</ul>
 	</div>

@@ -22,5 +22,5 @@ class IndexView(ListView):
         # __gt means greater than
         # queryset = queryset.filter(id__gt=1)
         # __endswith means item value in the end
-        queryset = queryset.filter(email__endswith='otus.ru')
+        # queryset = queryset.filter(email__endswith='otus.ru')
         return queryset
