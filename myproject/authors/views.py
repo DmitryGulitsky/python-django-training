@@ -38,6 +38,8 @@ class CreateAuthorView(TemplateView):
     def post(self, request):
         form = AuthorForm(request.POST)
         if form.is_valid():
-            form.save()
+            new_author = form.save(commit=False)
+            new_author.level = 'J'
+            new_author.save()
             return redirect(reverse('authors:index'))
         return render(request, self.template_name, {'form': form})
