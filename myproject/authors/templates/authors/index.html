@@ -4,9 +4,17 @@
 	Index of authors
 {% endblock %}
 
+{% load randon_joke %}
 {% load email_domain %}
 {% block body %}
 	<h1>Authors:</h1>
+	<hr>
+	{% joke 0 %}
+	{% joke 2 %}
+	{% joke 3 %}
+	{% joke 'abc' %}
+	{% joke %}
+	<hr>
 	<div>
 		<ul class="list-group">
 			{% for author in authors %}
