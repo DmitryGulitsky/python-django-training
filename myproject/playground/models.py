@@ -71,3 +71,29 @@ class Article(models.Model):
 
     def __str__(self):
         return f'{self.title} on {self.pub_date}'
+
+#
+
+
+class Category(models.Model):
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
+    label = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.label
+
+
+class Shop(models.Model):
+    class Meta:
+        verbose_name = 'Shop'
+        verbose_name_plural = 'Shops'
+
+    title = models.CharField(max_length=100)
+    # address
+    categories = models.ManyToManyField(Category)
+
+    def __str__(self):
+        return self.title
